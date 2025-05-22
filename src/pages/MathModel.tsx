@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Paper, Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Typography, Paper, Box, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
 import { Calculate, Assessment, Speed } from '@mui/icons-material';
 
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
@@ -10,6 +10,8 @@ const mathJaxConfig = {
 
 
 const MathModel = () => {
+  const theme = useTheme();
+
   return (
     <Box>
       <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
@@ -92,7 +94,7 @@ const MathModel = () => {
           <Box
             sx={{
               p: 2,
-              bgcolor: 'grey.100',
+              bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100',
               borderRadius: 1,
               mb: 2,
             }}
@@ -129,7 +131,7 @@ const MathModel = () => {
           <Box
             sx={{
               p: 2,
-              bgcolor: 'grey.100',
+              bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100',
               borderRadius: 1,
               mb: 2,
             }}
@@ -156,7 +158,7 @@ const MathModel = () => {
           <Box
             sx={{
               p: 2,
-              bgcolor: 'grey.100',
+              bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100',
               borderRadius: 1,
               mb: 2,
             }}

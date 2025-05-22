@@ -11,9 +11,13 @@ import CalculateIcon from '@mui/icons-material/Calculate';
 import ComputerIcon from '@mui/icons-material/Computer';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import DescriptionIcon from '@mui/icons-material/Description';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { mode, toggleTheme } = useTheme();
 
   const navItems = [
     { text: 'Главная', path: '/', icon: <HomeIcon /> },
@@ -41,6 +45,16 @@ const Navbar = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Система проектирования установок изомеризации
         </Typography>
+        <IconButton
+          size="large"
+          edge="end"
+          color="inherit"
+          aria-label="toggle theme"
+          onClick={toggleTheme}
+          sx={{ mr: 2 }}
+        >
+          {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
         <IconButton
           size="large"
           edge="end"
